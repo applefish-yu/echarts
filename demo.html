@@ -58,7 +58,7 @@
 							{
 								type: "line",
 								showSymbol: false,
-								hoverAnimation: false,
+								hoverAnimation: true,
 								areaStyle: {},
 								data: [],
 							},
@@ -141,13 +141,11 @@
 						};
 					});
 					this.myChart.setOption(options);
-					setTimeOut(()=>{
-						this.myChart.dispatchAction({
-							type: 'showTip',
-							seriesIndex: 0,
-							dataIndex: options.series[0].data.length-1
-						});
-					})
+					this.myChart.dispatchAction({
+						type: 'showTip',
+						seriesIndex: 0,
+						dataIndex: options.series[0].data.length-1
+					});
 				},
 				randomData(now, value) {
 					value = Math.random() * 100;
