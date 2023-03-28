@@ -141,11 +141,13 @@
 						};
 					});
 					this.myChart.setOption(options);
-					this.myChart.dispatchAction({
-						type: 'showTip', // 根据 tooltip 的配置项显示提示框。
-						seriesIndex: 0,
-						dataIndex: options.series[0].data.length-1
-					});
+					setTimeOut(()=>{
+						this.myChart.dispatchAction({
+							type: 'showTip',
+							seriesIndex: 0,
+							dataIndex: options.series[0].data.length-1
+						});
+					})
 				},
 				randomData(now, value) {
 					value = Math.random() * 100;
