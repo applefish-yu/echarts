@@ -1,0 +1,175 @@
+<html>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.js"></script>
+</head>
+
+<body>
+	<div id="vueApp">
+		<div class="nowEcharts" id="nowEcharts" style="height: 100%;"></div>
+	</div>
+	<script>
+		new Vue({
+			el: '#vueApp',
+			data() {
+				return {
+					oneDay: 1000,
+					nowOptions: {
+						visualMap: [
+							{
+								show: false,
+								type: "continuous",
+								seriesIndex: 0,
+								min: 0,
+								max: 400,
+							},
+						],
+						title: {
+							left: "left",
+							text: "demo",
+						},
+						tooltip: {
+							trigger: "axis",
+							axisPointer: {
+								animation: false,
+							},
+						},
+						grid: {
+							top: "15%",
+							bottom: "10%",
+						},
+						xAxis: {
+							type: "time",
+							splitLine: {
+								show: false,
+							},
+							triggerEvent: true,
+						},
+						yAxis: {
+							type: "value",
+							boundaryGap: [0, "100%"],
+							max: 100,
+							splitLine: {
+								show: false,
+							},
+						},
+						series: [
+							{
+								type: "line",
+								showSymbol: false,
+								hoverAnimation: false,
+								areaStyle: {},
+								data: [],
+							},
+						],
+					},
+					myChart: null,
+					timer: null,
+					data: [],
+					temp: 59,
+					now: "",
+				}
+			},
+			mounted() {
+				this.nowChart();
+				this.getData()
+			},
+			methods: {
+				nowChart() {
+					let that = this;
+					this.now = +new Date();
+					var value = Math.random() * 1000;
+					for (var i = 0; i < 60; i++) {
+						this.now = new Date(+this.now + this.oneDay);
+						this.data.push(this.randomData(this.now, value));
+					}
+					this.myChart = echarts.init(document.getElementById("nowEcharts"));
+					let options = Object.assign(that.nowOptions, {});
+					options.series.forEach((item) => {
+						item.data = that.data;
+						item.markPoint = {
+							data: [
+								[
+									{
+										symbol: "none",
+										x: "95%",
+									},
+									{
+										symbol: "circle",
+										name: "实时数据",
+										value: this.data[this.temp].value[1],
+										xAxis: this.data[this.temp].value[0],
+									},
+								],
+							],
+						};
+					});
+					this.myChart.setOption(options);
+				},
+				getData() {
+					let that = this;
+					var value = Math.random() * 1000;
+					this.timer = setInterval(() => {
+						for (var i = 0; i < 1; i++) {
+							that.data.shift();
+							that.now = new Date(+that.now + that.oneDay);
+							that.data.push(this.randomData(that.now, value));
+						}
+						that.updateChart()
+					}, 1000);
+				},
+				updateChart() {
+					let options = Object.assign(this.nowOptions, {});
+					options.series.forEach((item) => {
+						item.data = this.data;
+						item.markPoint = {
+							data: [
+								[
+									{
+										symbol: "none",
+										x: "95%",
+									},
+									{
+										symbol: "circle",
+										name: "实时数据",
+										value: this.data[this.temp].value[1],
+										xAxis: this.data[this.temp].value[0],
+									},
+								],
+							],
+						};
+					});
+					this.myChart.setOption(options);
+					this.myChart.dispatchAction({
+						type: 'showTip', // 根据 tooltip 的配置项显示提示框。
+						seriesIndex: 0,
+						dataIndex: options.series[0].data.length-1
+					});
+				},
+				randomData(now, value) {
+					value = Math.random() * 100;
+					var valueName =
+						now.getFullYear() +
+						"/" +
+						(now.getMonth() + 1) +
+						"/" +
+						now.getDate() +
+						" " +
+						(now.getHours() >= 10 ? now.getHours() : "0" + now.getHours()) +
+						":" +
+						(now.getMinutes() >= 10 ? now.getMinutes() : "0" + now.getMinutes()) +
+						":" +
+						(now.getSeconds() >= 10 ? now.getSeconds() : "0" + now.getSeconds());
+					return {
+						name: now.toString(),
+						value: [valueName, Math.round(value)],
+					};
+				},
+
+			}
+		})
+	</script>
+</body>
+
+</html>
