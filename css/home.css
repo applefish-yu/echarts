@@ -1,0 +1,31 @@
+
+.main{
+	background: url(../image/bg.png) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: calc(100% - 120px);
+}
+.main-module{
+    margin: 15% auto;
+    height: 100%;
+}
+.main-module .module{
+	background: url(../image/hoemIcon.png) no-repeat;
+    height: 422px;	
+    font-size: 50px;
+	cursor: pointer;
+    font-weight: bold;
+    color: #D6F2FF;
+    line-height: 63px;
+    display: inline-block; 
+}
+.main-module .module a{
+	position: absolute;
+    top: 33%;
+	color: #D6F2FF;
+    left: 34%;
+}
+.main-module  .module:hover{ 
+  opacity: 0.6;
+  background: url(../image/homeIconH.png) no-repeat;
+}

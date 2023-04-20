@@ -1,0 +1,9 @@
+.main:hover .playbtn{
+    display: block;
+}
+.playbtn{
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+    display: none;
+}

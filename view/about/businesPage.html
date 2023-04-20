@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../css/common.css" />
+<link rel="stylesheet" href="../../css/head.css" />
+<link rel="stylesheet" href="../../css/about.css"/>
+<link rel="stylesheet" href="../../css/footer.css"/>
+<script src="../../js/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="head">
+    <header class="container  minw1360">
+        <div class="head-left  fl"><img src="../../image/logo.png"/></div>
+        <ul class="head-right  fr">
+          <li class="fl"><a href="../home/home.html"><i class="icon0"></i>首页</a></li>
+          <li class="fl  callback"><a><i class="icon"></i>返回</a></li>
+        </ul>
+    </header>
+    </div> 
+    <div class="main" style="height:calc(100% - 110px)"> 
+       <main class="container minw1600">
+          <div class="scopebg">
+             <!-- <ul>
+                 <li class="qyxcbg">企业宣传片</li>
+             </ul> -->
+           </div> 
+           <footer class="container minw1360">
+            <ul>
+             <li  class="fl">您的位置是:<span>首页>关于我们>业务范围</span></li>
+             <li  class="fr">本页将在<span>120</span>秒后自动跳到首页<li>
+            </ul>   
+         </footer>
+       </main>
+      
+    </div> 
+</div>        
+</body>
+<script src="../../js/util.js"></script>
+<script>
+  window.onload=function(){
+    time.callbackUrl();
+  }  
+  $(".callback").click(function(){
+      window.history.go(-1) 
+    })
+  
+  
+  </script>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../css/common.css" />
+<link rel="stylesheet" href="../../css/head.css" />
+<link rel="stylesheet" href="../../css/video.css" />
+<link rel="stylesheet" href="../../css/footer.css"/>
+<link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/swiper-bundle.min.js"></script>
+</head>
+<style>
+  #progress{
+      height: 12px;
+      width: 1728px;
+      position:absolute;
+      bottom: 5px;
+      left: 5px;
+      cursor: pointer;
+  }
+  .timebox{
+    position: absolute;
+    bottom: 5px;
+    font-size: 18px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+  }
+
+</style>
+<body>
+<div class="wrapper">
+  <div class="head" style=" background: #72B9FF;">
+    <header class="container  minw1360">
+        <div class="head-left  fl"><img src="../../image/logo.png"/></div>
+        <ul class="head-right  fr">
+          <li class="fl"><a href="../home/home.html"><i class="icon0"></i>首页</a></li>
+          <li class="fl"><a href="../about/qualifPage.html"><i class="icon"></i>返回</a></li>
+        </ul>
+    </header>
+   </div>   
+   <div class="main">
+    <video id="player"  style= "width:100vw;object-fit: fill;"  height="400">
+      <source src="../../video/Image.mp4" type="video/mp4"></source>
+    </video>
+    
+    <progress  value="0" id="progress"></progress>
+    <div class="timebox">
+      <span id="time1">
+          00:00:00
+      </span>/
+      <span id="time2">
+          00:00:00
+      </span>
+     </div>
+     <div  class="playbtn" onClick="playPause()">
+       <img src="../../image/play.png"/>
+    </div>
+   </div>  
+  </div>
+  <script>
+$("#player").height(window.innerHeight);
+$("#player").attr('width', window.innerWidth);
+var video = document.querySelector("video");
+function number1(s){
+                if(s<10){
+                    s="0"+s
+                }else{
+                    s=""+s
+                }
+                return s;
+            }
+            var time1 = document.getElementById("time1");
+            var time2 = document.getElementById("time2");
+            var t1;
+     //视频获取时间单位为秒，要对它进行一些数据的处理
+      video.oncanplay = function(){　　　　　　　　　　　　//获取视频总时长
+                t1 = video.duration;
+                console.log(t1,'00000')
+                var h = parseInt(t1/3600);
+                var m = parseInt(t1%3600/60);
+                var s = parseInt(t1%60);　　　　　　　　　　　　//值显示在span标签中
+                time2.innerHTML = number1(h) + ":"+ number1(m) + ":" + number1(s);
+            }
+
+      video.ontimeupdate = function(){　　　　　　　　　　　　//获取当前视频播放的时间
+                var t2 = video.currentTime;
+                var h = parseInt(t2/3600);
+                var m = parseInt(t2%3600/60);
+                var s = parseInt(t2%60);
+                time1.innerHTML = number1(h) + ":"+ number1(m) + ":" + number1(s);
+                progress.max = t2;
+             
+                progress.value = t2/t1*progress.max;
+            }
+     video.onended = function(){
+                progress.value = 0;　　　　　　　　　　　　//结束时清0；
+                time1.innerHTML = "00"+":"+"00"+":"+"00";
+        }
+        progress.onclick = function(e){
+            
+                    var left  = e.offsetX;
+                    video.currentTime = left/1728*t1;
+                } 
+var myVideo =document.getElementById("player")
+function playPause(){
+	if(myVideo.paused){
+    myVideo.play(); 
+   }else{
+     myVideo.pause(); 
+   }
+}
+</script>  
+<script src="../../js/util.js"></script>
+<script>
+window.onload=function(){
+  time.callbackUrl();
+}  
+$(".callback").click(function(){
+    window.history.go(-1) 
+  })
+
+ 
+</script>
+</body>
+</html>   

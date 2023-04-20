@@ -1,0 +1,11 @@
+footer{
+    font-size: 25px;
+    font-weight: 400;
+    color: #D5F0FF;
+    letter-spacing: 3px;
+    height: 60px;
+    line-height: 60px;
+}
+footer span{
+    color: #F8CA98;
+}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../css/common.css" />
+<link rel="stylesheet" href="../../css/head.css" />
+<link rel="stylesheet" href="../../css/scientific.css" />
+<link rel="stylesheet" href="../../css/footer.css"/>
+<link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/swiper-bundle.min.js"></script>
+</head>
+<style type="text/css">
+  body,div,img{
+      margin: 0;
+      padding: 0;
+      border: 0;
+  }
+  #container{
+      width: 640px;
+      /*height: 400px;*/
+      border: 1px solid pink;
+      /*position: relative;*/
+  }
+
+  .pos{
+      width: 640px;
+      height: 60px;
+      background: #242424;
+      margin-top: -7px;
+      position: relative;
+
+  }
+  #playBtn{
+      position:absolute;
+      top: 10px;
+      left: 20px;
+      cursor: pointer;
+  }
+  #progress{
+      height: 12px;
+      width: 320px;
+      position:absolute;
+      top: 24px;
+      left: 80px;
+      cursor: pointer;
+
+  }
+  .timebox{
+      position:absolute;
+      top: 20px;
+      left: 420px;
+      cursor: pointer;
+      color: white;
+  }
+
+  #full{
+      position:absolute;
+      top: 12px;
+      right: 20px;
+      cursor: pointer;
+  }
+
+</style>
+<body>
+  <div id="container">
+    <video poster="../../image/play.png"  width="600">
+        <source src="../../video/Image.mp4"></source>
+    </video>
+    <div class="pos">
+        <img src=" ../../image/play.png" width="40px" id="playBtn" />
+        <progress  value="0" id="progress"></progress>
+        <div class="timebox">
+            <span id="time1">
+                00:00:00
+            </span>/
+            <span id="time2">
+                00:00:00
+            </span>
+        </div>
+        <img src="../../image/play.png" width="35px" id="full"/>
+    </div>
+</div>
+</body>
+<script src="../../js/util.js"></script>
+<script>
+  window.onload=function(){
+    time.callbackUrl();
+  } 
+  var video = document.querySelector("video");
+            var playBtn = document.getElementById("playBtn");
+            playBtn.onclick = function(){
+                if(video.paused){
+                    video.play();
+                    playBtn.src = "img/pause.png";
+                }else{
+                    video.pause();
+                    playBtn.src = "img/on.png";
+                }
+            }  
+            var full = document.getElementById("full");
+            var container = document.getElementById("container");
+            var i = 1;//定义一个变量，用于记录是否为全屏状态
+            full.onclick = function(){
+                i++;　　　　　　　　　　//对2取余，为0则全屏，否则关闭全屏
+                if(i%2==0){　　　　　　　　　　　　　　//点击开启全屏
+                    if(container.requestFullScreen){
+                     container.requestFullScreen()
+                    }else if(container.webkitRequestFullScreen){
+                         container.webkitRequestFullScreen()//谷歌
+                    }else if(container.mozRequestFullScreen){
+                         container.mozRequestFullScreen()//火狐
+                    }else if(div01.msRequestFullscreen){
+                         container.msRequestFullscreen()//ie
+                    }
+                }else{　　　　　　　　　　　　　　//关闭全屏
+                    if(document.cancelFullscreen){
+                         document.cancelFullscreen();
+                    }else if(document.webkitCancelFullScreen){
+                         document.webkitCancelFullScreen();
+                    }else if(document.mozCancelFullScreen){
+                         document.mozCancelFullScreen();
+                    }else if(document.msExitFullscreen){
+                         document.msExitFullscreen();
+                    }
+                }
+
+            }
+            function number1(s){
+                if(s<10){
+                    s="0"+s
+                }else{
+                    s=""+s
+                }
+                return s;
+            }
+            var time1 = document.getElementById("time1");
+            var time2 = document.getElementById("time2");
+            var t1;
+            //视频获取时间单位为秒，要对它进行一些数据的处理
+            video.oncanplay = function(){　　　　　　　　　　　　//获取视频总时长
+                t1 = video.duration;
+                var h = parseInt(t1/3600);
+                var m = parseInt(t1%3600/60);
+                var s = parseInt(t1%60);　　　　　　　　　　　　//值显示在span标签中
+                time2.innerHTML = number1(h) + ":"+ number1(m) + ":" + number1(s);
+            }
+
+         video.ontimeupdate = function(){　　　　　　　　　　　　//获取当前视频播放的时间
+                var t2 = video.currentTime;
+                var h = parseInt(t2/3600);
+                var m = parseInt(t2%3600/60);
+                var s = parseInt(t2%60);
+                time1.innerHTML = number1(h) + ":"+ number1(m) + ":" + number1(s);
+                progress.max = t2;
+                progress.value = t2/t1*progress.max;
+            }
+            video.onended = function(){
+                progress.value = 0;　　　　　　　　　　　　//结束时清0；
+                time1.innerHTML = "00"+":"+"00"+":"+"00";
+            }
+
+            progress.onclick = function(e){
+                    //获取当前位置距离父级最左边的距离
+                    //left = progress.offsetLeft;
+                    //获取鼠标距离屏幕最左边的距离
+                    //e.clientX
+                    //获取鼠标距离当前元素最左边的距离
+                    var left  = e.offsetX;
+                    console.log(left);
+                    console.log(t1);
+                    video.currentTime = left/320*t1;
+                } 
+</script>
+</html>    

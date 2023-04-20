@@ -1,0 +1,178 @@
+.main-product{
+    background:url(../image/background.png) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 110px);
+}
+.main-product .main-module {
+    margin: 9% auto;
+}
+.main-module .module{
+    background: url(../image/pdbg.png) no-repeat center;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    color: #125C99;
+    cursor: pointer;
+    height: 371px;
+    display: inline-block;
+}
+.main-module .module a{
+    width: 100%;    
+    height: 371px;
+    display: inline-block;
+}
+
+.main-module .module .iconImg{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/cticon.png) no-repeat;
+    width: 59px;
+    height: 75px;
+    left: 45%;
+    top: 25%;
+}
+.main-module .module .iconImg0{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/psicon.png) no-repeat;
+    width: 74px;
+    height: 75px;
+    left: 45%;
+    top: 25%;
+}
+.main-module .module .iconImg_0{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/image.png) no-repeat;
+    width: 90px;
+    height: 75px;
+    left: 38%;
+    top: 25%;
+}
+.main-module .module .iconImg_1{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/sever.png) no-repeat;
+    width: 70px;
+    height: 75px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_2{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/hos.png) no-repeat;
+    width: 70px;
+    height: 75px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_3{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/lhjs.png) no-repeat;
+    width: 90px;
+    height: 75px;
+    left: 38%;
+    top: 25%;
+}
+.main-module .module .iconImg_4{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/yb.png) no-repeat;
+    width: 75px;
+    height: 75px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_5{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/yq.png) no-repeat;
+    width: 70px;
+    height: 75px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_6{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/gsjj.png) no-repeat;
+    width: 70px;
+    height: 80px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_7{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/ywfw.png) no-repeat;
+    width: 70px;
+    height: 75px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_8{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/ry.png) no-repeat;
+    width: 80px;
+    height: 75px;
+    left: 38%;
+    top: 25%;
+}
+.main-module .module .iconImg_9{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/shzw.png) no-repeat;
+    width: 70px;
+    height: 75px;
+    left: 42%;
+    top: 25%;
+}
+.main-module .module .iconImg_10{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/zscq.png) no-repeat;
+    width: 77px;
+    height: 77px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .iconImg_11{
+    display: inline-block;
+    position: absolute;
+    background: url(../image/dsj.png) no-repeat;
+    width: 80px;
+    height: 80px;
+    left: 40%;
+    top: 25%;
+}
+.main-module .module .jump{
+   width: 100%;
+   height: 100%;
+   display: block; 
+}
+.main-module .module .span{
+    position: absolute;
+    left: 42%;
+    top: 55%;
+}
+footer{
+    font-size: 25px;
+    font-weight: 400;
+    color: #D5F0FF;
+    line-height: 24px;
+    letter-spacing: 3px;
+}
+footer span{
+    color: #F8CA98;
+}
+.moduletext{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 90px;
+}
+}

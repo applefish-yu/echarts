@@ -1,0 +1,161 @@
+.main{
+    background:url(../image/background.png) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 120px);
+}
+.contant{
+    padding: 24px 0px;
+}
+.bgContant{
+  background: url(../image/img.jpg) no-repeat center;
+  width: 100%;
+  height: calc(100% - 65px);
+  background-size: cover;
+  position: relative;
+}
+.remotbg{
+    background: url(../image/remotebg.png) no-repeat center;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    height: calc(100% - 65px);
+  }
+  .medicalbg{
+    background: url(../image/medicalbg.jpg) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 65px);
+  }
+  .commonbg{
+    background: url(../image/comm.jpg) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 65px); 
+  }
+  .techbg{
+    height: calc(100% - 65px);
+    background-size: cover;
+    background: url(../image/techbg.png) no-repeat center; 
+  }
+  .mediclbg{
+    background: url(../image/medicl.jpg) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 65px);
+  }
+  .contrltbg{
+    background: url(../image/contrlbg.png) no-repeat center;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    height: calc(100% - 65px);
+  }
+  .teachbg{
+    background: url(../image/teachbg.png) no-repeat center;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    height: calc(100% - 65px);
+   
+  }
+  .numImgbg{
+    background: url(../image/numImg.jpg) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 65px);
+
+  }
+
+  .insurancbg{
+    background: url(../image/ybbg.png) no-repeat center;
+    width: 100%;
+    background-size: cover;
+    height: calc(100% - 65px);
+  }
+  .dropList{
+    position:absolute;
+    right: 0px;
+    width: 182px;
+    height: 49px;
+    background: #33ADCC;
+    font-size: 21px;
+    text-align: center;
+    font-weight: 500;
+    color: #1C6D9C;
+    line-height: 50px;
+    box-shadow: 0px 2px 4px 0px rgba(20, 87, 152, 0.8);
+  }
+  .dropdown{
+    background: url(../image/dropdown.png) no-repeat;
+    width: 20px;
+    margin: -8px;
+    margin-left: 14px;
+    height: 20px;
+    display: inline-block
+
+  }
+  .dropdown_0{
+    background: url(../image/drop.png) no-repeat;
+    width: 20px;
+    margin: -8px;
+    margin-left: 14px;
+    height: 20px;
+    display: none;
+    
+    display: inline-block 
+  }
+  .dropList_0{
+    position:absolute;
+    right: 0px;
+    top: 50px;
+    width: 182px;
+    color: #2A81AE;
+    height: 150px;
+    opacity: 0.7;
+    background: #33ADCC;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+    line-height: 50px;
+    box-shadow: 0px 2px 4px 0px rgba(20, 87, 152, 0.8);
+  }
+  .dropList_1{
+    position:absolute;
+    right: 0px;
+    top: 50px;
+    width: 182px;
+    height: 100px;
+    background: #33ADCC;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    line-height: 50px;
+    box-shadow: 0px 2px 4px 0px rgba(20, 87, 152, 0.8);
+  }
+  .dropList  .active,.dropList_0 .focusBtn{
+    color: #8DECFA;
+    background: #33ADCC;
+  }
+  .dropList li:hover,.dropList_0 li a:hover,.dropList_1 li a:hover{
+    color: #8DECFA;
+    background: #33ADCC;
+    cursor: pointer;
+  }
+  .dropList_0 li{
+    border-bottom: 1px solid #98F9FF;
+
+  }
+  .dropList_0 li a{
+    color: #1C6D9C;
+  }
+ .main-module{
+    height:calc(100vh - 120px - 125px);
+    width: 80%;
+    margin: 0 auto;
+ }
+.focusBtn{
+
+}
