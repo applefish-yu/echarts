@@ -169,20 +169,20 @@
     margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 10px;
+    position: relative;
+    height: 45px;
 }
-.brandList  li:first-child{
-    margin-right: 130px;
-}
-.brandList  li{
+.brandList  div{
     background: url(../image/introdbtn.png) no-repeat;
     width: 240px;
-    float: left;
+    float: none;
     line-height: 65px;
     height: 65px;
     text-align: center;
     font-size: 29px;
     font-weight: 100;
     color: #F4FBFB;
+    margin: 0 auto;
 }
 .mask{
     position: absolute;

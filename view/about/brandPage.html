@@ -24,22 +24,13 @@
    </div> 
    <div class="main"> 
     <main style="height:100%;">
-        <ul class="brandList">
-            <li class="fl  brandbtn  active">资质认证</li>
-            <li class="fl  brandbtn0">品牌荣誉</li>
-        </ul>
-        <div class="main-bg">
+        <div class="brandList">
+            <div class="fl  brandbtn  active">资质认证</div>
+        </div>
+        <div class="main-bg0">
             <footer class="container minw1360">
                 <ul class="footNav  container minw1360">
                  <li  class="fl">您的位置是:<span>首页>关于我们>荣誉资质>资质认证</span></li>
-                 <li  class="fr  ">本页将在<span>120</span>秒后自动跳到首页<li>
-                </ul>   
-             </footer>
-        </div>
-        <div class="main-bg0"  style="display: none;">
-            <footer class="container minw1360">
-                <ul class="footNav  container minw1360">
-                 <li  class="fl foottext">您的位置是:<span></span></li>
                  <li  class="fr  ">本页将在<span>120</span>秒后自动跳到首页<li>
                 </ul>   
              </footer>
@@ -57,13 +48,13 @@ $(".brandbtn").click(function(){
     $(this).addClass("active");
     $(".main-bg0").css("display","none");
 });   
-$(".brandbtn0").click(function(){
-    $(".main-bg").hide();
-    $(".footNav .foottext span").text("首页>关于我们>荣誉资质>品牌荣誉")
-    $(".main-bg0").css("display","block");
-    $(".brandbtn").removeClass("active")
-    $(this).addClass("active")
-}) 
+// $(".brandbtn0").click(function(){
+//     $(".main-bg").hide();
+//     $(".footNav .foottext span").text("首页>关于我们>荣誉资质>品牌荣誉")
+//     $(".main-bg0").css("display","block");
+//     $(".brandbtn").removeClass("active")
+//     $(this).addClass("active")
+// }) 
 </script>
 <script src="../../js/util.js"></script>
 <script>
